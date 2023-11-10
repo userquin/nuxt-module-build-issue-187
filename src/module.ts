@@ -6,6 +6,10 @@ export interface ModuleOptions {
   prop1?: string
 }
 
+export interface ModuleHooks {
+  'my-module:module-hook': (data: { surname: string, deep: number }) => HookResult
+}
+
 export interface RuntimeModuleHooks {
   'my-module:runtime-hook': (data: { name: string, delta: number }) => HookResult
 }
