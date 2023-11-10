@@ -1,0 +1,13 @@
+diff --git a/dist/chunks/build.mjs b/dist/chunks/build.mjs
+index de74b01b4dda5572ac4079fa6c4c43db2d5ef1a0..7e996ce2e1ca3379854598fa50f8d3a42325472e 100644
+--- a/dist/chunks/build.mjs
++++ b/dist/chunks/build.mjs
+@@ -134,7 +134,7 @@ async function writeTypes(distDir, meta) {
+   const dtsContents = `
+ import type { ${moduleImports.join(", ")} } from './module'
+ 
+-${appShims.length ? `declare module '#app' {
++${appShims.length ? `declare module '#app/nuxt' {
+ ${appShims.join("\n")}
+ }
+ ` : ""}

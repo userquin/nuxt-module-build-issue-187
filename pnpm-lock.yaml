@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@nuxt/module-builder@0.5.4':
+    hash: iopkhxuvwpvrrwjada6ilk7ohu
+    path: patches/@nuxt__module-builder@0.5.4.patch
+
 dependencies:
   '@nuxt/kit':
     specifier: ^3.8.1
@@ -18,7 +23,7 @@ devDependencies:
     version: 0.2.0(eslint@8.53.0)
   '@nuxt/module-builder':
     specifier: ^0.5.3
-    version: 0.5.4(@nuxt/kit@3.8.1)(nuxi@3.9.1)(typescript@5.2.2)
+    version: 0.5.4(patch_hash=iopkhxuvwpvrrwjada6ilk7ohu)(@nuxt/kit@3.8.1)(nuxi@3.9.1)(typescript@5.2.2)
   '@nuxt/schema':
     specifier: ^3.8.1
     version: 3.8.1(rollup@3.29.4)
@@ -1175,7 +1180,7 @@ packages:
       - rollup
       - supports-color
 
-  /@nuxt/module-builder@0.5.4(@nuxt/kit@3.8.1)(nuxi@3.9.1)(typescript@5.2.2):
+  /@nuxt/module-builder@0.5.4(patch_hash=iopkhxuvwpvrrwjada6ilk7ohu)(@nuxt/kit@3.8.1)(nuxi@3.9.1)(typescript@5.2.2):
     resolution: {integrity: sha512-lCPh8s8LSfYqHgIMMsctDhz+AX1z6TnATkUes/GXc/No4kApC0zmJkQWrbtDRjmsWjElwl1kE7l7OzYdYc3d4w==}
     hasBin: true
     peerDependencies:
@@ -1194,6 +1199,7 @@ packages:
       - supports-color
       - typescript
     dev: true
+    patched: true
 
   /@nuxt/schema@3.8.1(rollup@3.29.4):
     resolution: {integrity: sha512-fSaWRcI/2mUskfTZTGSnH6Ny0x05CRzylbVn6WFV0d6UEKIVy42Qd6n+h7yoFfp4cq4nji6u16PT4SqS1DEhsw==}
@@ -1421,6 +1427,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     dev: true
     bundledDependencies:
       - napi-wasm
@@ -4447,6 +4454,10 @@ packages:
     resolution: {integrity: sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==}
     engines: {node: ^14 || ^16 || >=18}
     hasBin: true
+    dev: true
+
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
     dev: true
 
   /natural-compare@1.4.0:
