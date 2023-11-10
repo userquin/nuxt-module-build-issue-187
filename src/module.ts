@@ -6,14 +6,6 @@ export interface ModuleOptions {
   prop1?: string
 }
 
-export interface ModuleHooks {
-  'my-module:module-hook': (data: { surname: string, deep: number }) => HookResult
-}
-
-export interface RuntimeModuleHooks {
-  'my-module:runtime-hook': (data: { name: string, delta: number }) => HookResult
-}
-
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'my-module',
@@ -28,3 +20,28 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin(resolver.resolve('./runtime/plugin'))
   }
 })
+
+export interface ModuleHooks {
+  'my-module:module-hook': (data: { surname: string, deep: number }) => HookResult
+}
+
+export interface RuntimeModuleHooks {
+  'my-module:runtime-hook': (data: { name: string, delta: number }) => HookResult
+}
+
+declare module '#app/nuxt' {
+  interface RuntimeNuxtHooks extends RuntimeModuleHooks {}
+}
+
+
+declare module '@nuxt/schema' {
+  interface NuxtConfig {
+    ['myModule']?: Partial<ModuleOptions>
+  }
+  interface NuxtOptions {
+    ['myModule']?: ModuleOptions
+  }
+  interface NuxtHooks extends ModuleHooks {}
+}
+
+
